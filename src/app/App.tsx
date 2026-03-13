@@ -55,7 +55,7 @@ function App() {
           <img src={logoImage} alt="ZÊNITHA Co." style={{ height: '100px' }} />
         </a>
         <ul className="nav-links">
-          <li><a href="#dobra2">Quem Somos</a></li>
+          <li><a href="#dobra2">Nossa tese</a></li>
           <li><a href="#dobra3"><strong>É Pra Você?</strong></a></li>
           <li><a href="#dobra7">A Fundadora</a></li>
           <li><a href="#dobra8"><strong>Feedbacks</strong></a></li>
@@ -69,7 +69,7 @@ function App() {
 
       <div className="mobile-menu">
         <button className="close-menu" aria-label="Fechar">×</button>
-        <a href="#dobra2">Quem Somos</a>
+        <a href="#dobra2">Nossa tese</a>
         <a href="#dobra3">É Pra Você?</a>
         <a href="#dobra7">A Fundadora</a>
         <a href="#dobra8">Feedbacks</a>
@@ -220,9 +220,7 @@ function App() {
           <div className="aviso-icon">!</div>
 
           <div className="aviso-content">
-            <strong>A aplicação não é uma garantia de abertura de projeto.</strong>
-            <p>
-              Escolhemos criteriosamente as marcas que acompanhamos e nosso processo
+            <p><strong>A aplicação não é uma garantia de abertura de projeto. </strong>Escolhemos criteriosamente as marcas que acompanhamos e nosso processo
               de seleção serve para proteger o seu investimento e a integridade da
               nossa entrega.
             </p>
@@ -417,7 +415,7 @@ function App() {
           <img src={logoImage} alt="ZÊNITHA Co." style={{ height: '85px' }} />
         </a>
         <div className="footer-links">
-          <a href="#dobra2">Quem somos</a>
+          <a href="#dobra2">Nossa tese</a>
           <a href="#dobra3">É pra você?</a>
           <a href="#dobra7">A Fundadora</a>
           <a href="#dobra8">Feedbacks</a>

@@ -301,14 +301,15 @@ section {
 .d3-cta {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .btn-d3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 298px;
+  min-width: 400px;
+  max-height: 40px;
   padding: 18px 30px;
   background: #cfa348;
   color: #ffffff;
@@ -481,10 +482,10 @@ section {
 
 .manifesto-body {
   margin: 0;
-  max-width: 300px;
+  max-width: 320px;
 
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.08;
   font-weight: 500;
 
@@ -509,7 +510,7 @@ section {
   justify-content: center;
 
   width: 308px;
-  height: 58px;
+  height: 35px;
 
   background: #0d2b4d;
   color: #ffffff;
@@ -656,7 +657,7 @@ section {
 
 .hero-headline {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-size: clamp(44px, 6.6vw, 86px);
+  font-size: clamp(44px, 6.6vw, 76px);
   font-weight: 400;
   color: var(--off);
   line-height: 0.93;
@@ -706,7 +707,8 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  min-width: 400px;
+  max-height: 40px;
   padding: 18px 30px;
   background: var(--gold);
   color: #ffffff;
@@ -829,7 +831,7 @@ section {
 }
 
 .d2-layout {
-  max-width: 1180px;
+  max-width: 980px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(520px, 1fr) 320px;
@@ -841,17 +843,17 @@ section {
 .d2-left {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 88px;
   padding-top: 8px;
 }
 
 .d2-title-box {
-  max-width: 540px;
+  max-width: 520px;
 }
 
 .d2-headline {
   font-family: "Sloop", serif;
-  font-size: clamp(42px, 4.5vw, 62px);
+  font-size: clamp(42px, 4.5vw, 92px);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.03em;
@@ -867,7 +869,7 @@ section {
 }
 
 .d2-text-box {
-  max-width: 520px;
+  max-width: 450px;
 }
 
 .d2-text-box p {
@@ -891,7 +893,7 @@ section {
 
 .d2-image {
   width: 100%;
-  height: 520px;
+  height: 450px;
   object-fit: cover;
   display: block;
 }
@@ -1361,13 +1363,13 @@ section {
 }
 
 .vtag {
-  min-width: 104px;
+  min-width: 158px;
   padding: 8px 14px;
   border: 1px solid rgba(22, 50, 90, 0.45);
   background: transparent;
   color: #16325a;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -1571,7 +1573,8 @@ section {
 }
 
 #dobra9 .btn-primary {
-  min-width: 310px;
+  min-width: 400px;
+  max-height: 20px;
   padding: 18px 28px;
   background: #cfa247;
   color: #ffffff;
