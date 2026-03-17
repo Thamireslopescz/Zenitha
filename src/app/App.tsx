@@ -174,18 +174,10 @@ function App() {
         </div>
 
         <div className="hero-stats-bar">
-          <div className="stat-item">
-            <AnimatedText text="Clientes em 5 países" />
-          </div>
-          <div className="stat-item">
-            <AnimatedText text="+7 dígitos gerados" />
-          </div>
-          <div className="stat-item">
-            <AnimatedText text="+40 nichos atendidos" />
-          </div>
-          <div className="stat-item">
-            <AnimatedText text="4 anos no mercado" />
-          </div>
+          <div className="stat-item">Clientes em 5 países</div>
+<div className="stat-item">+7 dígitos gerados</div>
+<div className="stat-item">+40 nichos atendidos</div>
+<div className="stat-item">4 anos no mercado</div>
         </div>
       </section>
 
