@@ -9,8 +9,32 @@
 }
 
 @font-face {
-  font-family: "Editors Note";
+  font-family: "Editors Note Regular";
   src: url("/fonts/editors-note-font-family/EditorsNote-Regular-iF664322be6e849.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editors Note Italic";
+  src: url("/fonts/letraeditorsnote/EditorsNote-Italic-iF664322be57316.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editors Note Extralight";
+  src: url("/fonts/letraeditorsnote/EditorsNote-Extralight-iF664322be43be3.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editors Note";
+  src: url("/fonts/letraeditorsnote/EditorsNote-Regular-iF664322be6e849.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -267,12 +291,12 @@ section {
 .fit-title {
   margin: 0 0 34px;
   text-align: center;
-  font-family: "Editors Note", serif;
+  font-family: "Editors Note Extralight", serif;
   font-size: clamp(28px, 3vw, 46px);
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: #16325a;
-  font-weight: 400;
+  font-weight: 200;
   text-transform: uppercase;
 }
 
@@ -662,9 +686,9 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .hero-headline {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-size: clamp(34px, 6.6vw, 66px);
-  font-weight: 400;
+  font-family: "Editors Note Extralight", serif;
+  font-size: clamp(24px, 6.6vw, 56px);
+  font-weight: 200;
   color: var(--off);
   line-height: 0.93;
   letter-spacing: -0.045em;
@@ -687,7 +711,7 @@ font-size: clamp(62px, 7vw, 98px);
 
 .hero-sub {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-size: clamp(16px, 1.45vw, 22px);
+  font-size: clamp(12px, 1.45vw, 18px);
   color: #ffffff;
   max-width: 720px;
   line-height: 1.15;
@@ -826,7 +850,7 @@ font-size: clamp(62px, 7vw, 98px);
   }
 
   .hero-headline {
-    font-size: clamp(36px, 10vw, 56px);
+    font-size: clamp(38px, 10vw, 58px);
     line-height: 0.98;
   }
 
@@ -888,9 +912,9 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .d2-headline {
-  font-family: "Editor's Note", serif;
+  font-family: "Editors Note Extralight", serif;
   font-size: clamp(42px, 4.5vw, 92px);
-  font-weight: 400;
+  font-weight: 200;
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: #16325a;
@@ -898,9 +922,9 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .d2-headline em {
-  font-family: "Editor's Note", serif;
+  font-family: "Editors Note Extralight", serif;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 200;
   color: #d1a347;
 }
 
@@ -962,7 +986,7 @@ font-size: clamp(62px, 7vw, 98px);
   }
 
   .d2-headline {
-    font-size: clamp(34px, 9vw, 48px);
+    font-size: clamp(44px, 9vw, 58px);
     line-height: 0.98;
   }
 
@@ -1123,17 +1147,17 @@ font-size: clamp(62px, 7vw, 98px);
   margin: 0 0 34px;
   text-align: center;
   color: #ffffff;
-  font-family: "Editors Note", serif;
+  font-family: "Editors Note Extralight", serif;
   font-size: clamp(42px, 4.5vw, 58px);
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
 #dobra6 .d6-headline em {
-
-  font-style: normal;
-  font-weight: 400;
+  font-family: "Editors Note Italic", serif;
+  font-style: italic;
+  font-weight: 200;
 }
 
 #dobra6 .d6-process {
@@ -1339,9 +1363,9 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .f-name {
-  font-family: "Editors Note", serif;
+  font-family: "Editors Note Italic", serif;
   font-size: clamp(54px, 5.3vw, 78px);
-  font-weight: 400;
+  font-weight: 200;
   line-height: 0.9;
   color: #16325a;
   margin: 0 0 14px;
@@ -1349,6 +1373,8 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .f-name em {
+  font-family: "Editors Note Extralight", serif;
+  font-weight: 200;
   font-style: normal;
   color: #16325a;
 }
@@ -1572,9 +1598,9 @@ font-size: clamp(62px, 7vw, 98px);
 .cta-headline {
   position: relative;
   z-index: 3;
-  font-family: "Editors Note", serif;
+  font-family: "Editors Note Extralight", serif;
   font-size: clamp(58px, 8vw, 108px);
-  font-weight: 400;
+  font-weight: 200;
   color: #ffffff;
   line-height: 0.9;
   margin: 0;
@@ -1582,6 +1608,7 @@ font-size: clamp(62px, 7vw, 98px);
 }
 
 .cta-headline em {
+  font-family: "Editors Note Regular", serif;
   display: block;
   font-style: italic;
   color: #ffffff;
