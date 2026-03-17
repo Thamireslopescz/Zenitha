@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Sloop";
-  src: url("src/assets/fonts/sloop-regular/Sloop-Regular.woff2/sloopscript2.woff") format("woff2");
+  src: url("public/fonts/sloop-regular/Sloop-Regular.woff2/sloopscript2.woff") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Editors Note";
-  src: url("../assets/editors-note-font-family/EditorsNote-Regular-iF664322be6e849.otf") format("opentype");
+  src: url("public/fonts/editors-note-font-family/EditorsNote-Regular-iF664322be6e849.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -763,6 +763,36 @@ font-size: clamp(62px, 7vw, 98px);
   line-height: 1.1;
 }
 
+.animated-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-char {
+  display: inline-block;
+  min-width: 0.42em;
+  text-align: center;
+  will-change: transform, opacity;
+  animation: charReveal 0.28s ease;
+}
+
+@keyframes charReveal {
+  0% {
+    transform: translateY(-8px);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.flip-char:nth-child(1) {
+  min-width: auto;
+}
+
 /* RESPONSIVO */
 @media (max-width: 1024px) {
   #hero {
@@ -1434,72 +1464,59 @@ font-size: clamp(62px, 7vw, 98px);
   }
 }
 
-/* ── DOBRA 8 ── */
+/* ── DOBRA 8 / FEEDBACKS EM CARROSSEL ── */
 #dobra8 {
-  background: var(--off-dark);
+  position: relative;
   overflow: hidden;
+  background: #fffdfa;
+  padding: 36px 0;
 }
 
-.d8-headline {
-  font-family: "Sloop", serif;
-  font-size: clamp(28px, 3.5vw, 48px);
-  margin-bottom: 60px;
-  max-width: 560px;
-}
-
-.track-wrap {
+.feedback-marquee {
+  width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
-.track {
+.feedback-track {
   display: flex;
+  align-items: center;
   gap: 24px;
-  animation: scrollCards 32s linear infinite;
   width: max-content;
+  animation: feedbackScroll 28s linear infinite;
 }
 
-.track:hover {
+.feedback-marquee:hover .feedback-track {
   animation-play-state: paused;
 }
 
-.fcard {
-  width: 380px;
-  flex-shrink: 0;
-  padding: 40px 36px;
-  background: var(--off);
-  border-top: 2px solid var(--gold);
+.feedback-slide {
+  flex: 0 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
-.fcard-stars {
-  color: var(--gold);
-  font-size: 13px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+.feedback-image {
+  display: block;
+  height: 170px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 18px;
+  user-select: none;
+  -webkit-user-drag: none;
+  box-shadow: 0 10px 30px rgba(17, 36, 68, 0.08);
 }
 
-.fcard-text {
-  font-size: 17px;
-  line-height: 1.8;
-  font-style: italic;
-  color: var(--blue);
-  margin-bottom: 28px;
-  font-weight: 300;
+@keyframes feedbackScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 12px));
+  }
 }
 
-.fcard-author {
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  font-weight: 600;
-}
 
-.fcard-niche {
-  font-size: 12px;
-  color: rgba(14, 26, 43, 0.38);
-  margin-top: 4px;
-  letter-spacing: 1px;
-}
 
 /* ── DOBRA 9 ── */
 #dobra9 {
@@ -1647,6 +1664,9 @@ footer {
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .footer-email:hover {

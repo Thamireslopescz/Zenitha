@@ -1,12 +1,81 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import './styles.css';
 import './animations.css';
+import { Instagram } from "lucide-react";
 import logoImage from "../assets/logoImage.png";
 import FounderImage from "../assets/fundadora.jpeg";
 import fogueteImage from "../assets/foguete.jpeg";
 import heroBg from "../assets/hero-bg.jpg";
 import terraEspaco from "../assets/terraEspaco.jpeg";
 import telescopio from "../assets/telescopio.jpg";
+import feed1 from "../assets/feed1.jpg";
+import feed2 from "../assets/feed2.png";
+import feed3 from "../assets/feed3.png";
+import feed4 from "../assets/feed4.png";
+import feed5 from "../assets/feed5.png";
+
+const feedbackImages = [feed1, feed2, feed3, feed4, feed5];
+
+const CHAR_SETS = {
+  number: "0123456789",
+  letter: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+};
+
+function AnimatedChar({ finalChar, delay = 0 }) {
+  const isNumber = /[0-9]/.test(finalChar);
+  const isLetter = /[a-zA-ZÀ-ÿ]/.test(finalChar);
+
+  const [displayChar, setDisplayChar] = useState(finalChar);
+
+  useEffect(() => {
+    if (!isNumber && !isLetter) {
+      setDisplayChar(finalChar);
+      return;
+    }
+
+    const chars = isNumber ? CHAR_SETS.number : CHAR_SETS.letter;
+    let iterations = 0;
+    const maxIterations = isNumber ? 25 : 32;
+    let interval;
+
+    const startTimeout = setTimeout(() => {
+      interval = setInterval(() => {
+        if (iterations >= maxIterations) {
+          setDisplayChar(finalChar);
+          clearInterval(interval);
+          return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        setDisplayChar(chars[randomIndex]);
+        iterations += 1;
+      }, 70);
+    }, delay);
+
+    return () => {
+      clearTimeout(startTimeout);
+      clearInterval(interval);
+    };
+  }, [finalChar, delay, isNumber, isLetter]);
+
+  return <span className="flip-char">{displayChar}</span>;
+}
+
+function AnimatedText({ text }) {
+  const chars = useMemo(() => text.split(""), [text]);
+
+  return (
+    <span className="animated-text">
+      {chars.map((char, index) => (
+        <AnimatedChar
+          key={`${char}-${index}`}
+          finalChar={char}
+          delay={index * 60}
+        />
+      ))}
+    </span>
+  );
+}
 
 function App() {
   useEffect(() => {
@@ -105,10 +174,18 @@ function App() {
         </div>
 
         <div className="hero-stats-bar">
-          <div className="stat-item">Clientes em 5 países</div>
-          <div className="stat-item">+7 dígitos gerados</div>
-          <div className="stat-item">+40 nichos atendidos</div>
-          <div className="stat-item">4 anos no mercado</div>
+          <div className="stat-item">
+            <AnimatedText text="Clientes em 5 países" />
+          </div>
+          <div className="stat-item">
+            <AnimatedText text="+7 dígitos gerados" />
+          </div>
+          <div className="stat-item">
+            <AnimatedText text="+40 nichos atendidos" />
+          </div>
+          <div className="stat-item">
+            <AnimatedText text="4 anos no mercado" />
+          </div>
         </div>
       </section>
 
@@ -335,60 +412,17 @@ function App() {
       </section>
 
       <section id="dobra8">
-        <div className="inner">
-          <div className="section-label anim-fade d1">Resultados</div>
-          <h2 className="d8-headline anim-fade d2">O que nossas clientes dizem</h2>
-        </div>
-        <div className="track-wrap">
-          <div className="track">
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "A ZÊNITHA transformou completamente minha presença no mercado. Agora tenho uma marca que realmente comunica quem sou."
-              </p>
-              <div className="fcard-author">MARIA COSTA</div>
-              <div className="fcard-niche">Consultora Executiva</div>
-            </div>
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "Profissionalismo e estratégia de alto nível. O processo foi colaborativo e o resultado superou todas as expectativas."
-              </p>
-              <div className="fcard-author">JOÃO SANTOS</div>
-              <div className="fcard-niche">CEO · TechCorp</div>
-            </div>
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "Finalmente tenho uma identidade que reflete a essência do meu trabalho. Meus clientes notaram a diferença imediatamente."
-              </p>
-              <div className="fcard-author">ANA OLIVEIRA</div>
-              <div className="fcard-niche">Arquiteta</div>
-            </div>
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "A ZÊNITHA transformou completamente minha presença no mercado. Agora tenho uma marca que realmente comunica quem sou."
-              </p>
-              <div className="fcard-author">MARIA COSTA</div>
-              <div className="fcard-niche">Consultora Executiva</div>
-            </div>
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "Profissionalismo e estratégia de alto nível. O processo foi colaborativo e o resultado superou todas as expectativas."
-              </p>
-              <div className="fcard-author">JOÃO SANTOS</div>
-              <div className="fcard-niche">CEO · TechCorp</div>
-            </div>
-            <div className="fcard">
-              <div className="fcard-stars">★★★★★</div>
-              <p className="fcard-text">
-                "Finalmente tenho uma identidade que reflete a essência do meu trabalho. Meus clientes notaram a diferença imediatamente."
-              </p>
-              <div className="fcard-author">ANA OLIVEIRA</div>
-              <div className="fcard-niche">Arquiteta</div>
-            </div>
+        <div className="feedback-marquee">
+          <div className="feedback-track">
+            {[...feedbackImages, ...feedbackImages].map((image, index) => (
+              <div className="feedback-slide" key={index}>
+                <img
+                  src={image}
+                  alt={`Feedback de cliente ${index + 1}`}
+                  className="feedback-image"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -420,7 +454,15 @@ function App() {
           <a href="#dobra7">A Fundadora</a>
           <a href="#dobra8">Feedbacks</a>
         </div>
-        <a href="mailto:publicidade.zenitha@gmail.com" className="footer-email">publicidade.zenitha@gmail.com</a>
+        <a
+          href="https://instagram.com/zenithaco"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-email"
+        >
+          <Instagram size={18} strokeWidth={1.5} />
+          <span>Zênitha</span>
+        </a>
         <div className="footer-copy">© 2025 ZÊNITHA Co. Todos os direitos reservados.</div>
       </footer>
     </>
