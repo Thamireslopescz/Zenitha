@@ -831,6 +831,7 @@ font-size: clamp(62px, 7vw, 98px);
   .hero-sub {
     max-width: 650px;
     line-height: 1.2;
+    font-size: clamp(4px, 1.45vw, 6px);
   }
 
   .hero-stats-bar {
