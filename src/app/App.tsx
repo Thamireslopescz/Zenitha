@@ -16,67 +16,6 @@ import feed5 from "../assets/feed5.png";
 
 const feedbackImages = [feed1, feed2, feed3, feed4, feed5];
 
-const CHAR_SETS = {
-  number: "0123456789",
-  letter: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-};
-
-function AnimatedChar({ finalChar, delay = 0 }) {
-  const isNumber = /[0-9]/.test(finalChar);
-  const isLetter = /[a-zA-ZÀ-ÿ]/.test(finalChar);
-
-  const [displayChar, setDisplayChar] = useState(finalChar);
-
-  useEffect(() => {
-    if (!isNumber && !isLetter) {
-      setDisplayChar(finalChar);
-      return;
-    }
-
-    const chars = isNumber ? CHAR_SETS.number : CHAR_SETS.letter;
-    let iterations = 0;
-    const maxIterations = isNumber ? 25 : 32;
-    let interval;
-
-    const startTimeout = setTimeout(() => {
-      interval = setInterval(() => {
-        if (iterations >= maxIterations) {
-          setDisplayChar(finalChar);
-          clearInterval(interval);
-          return;
-        }
-
-        const randomIndex = Math.floor(Math.random() * chars.length);
-        setDisplayChar(chars[randomIndex]);
-        iterations += 1;
-      }, 70);
-    }, delay);
-
-    return () => {
-      clearTimeout(startTimeout);
-      clearInterval(interval);
-    };
-  }, [finalChar, delay, isNumber, isLetter]);
-
-  return <span className="flip-char">{displayChar}</span>;
-}
-
-function AnimatedText({ text }) {
-  const chars = useMemo(() => text.split(""), [text]);
-
-  return (
-    <span className="animated-text">
-      {chars.map((char, index) => (
-        <AnimatedChar
-          key={`${char}-${index}`}
-          finalChar={char}
-          delay={index * 60}
-        />
-      ))}
-    </span>
-  );
-}
-
 function App() {
   useEffect(() => {
     // Scroll animation setup
@@ -167,7 +106,7 @@ function App() {
           </p>
 
           <div className="hero-cta">
-            <a href="#dobra9" className="btn-primary">
+            <a href="https://form.respondi.app/KvOzwK4I" className="btn-primary">
               RESERVAR LUGAR NO ZÊNITE
             </a>
           </div>
@@ -250,7 +189,7 @@ function App() {
           </div>
 
           <div className="d3-cta anim d2">
-            <a href="#dobra9" className="btn-d3">ENTRAR NA ÓRBITA DA ZÊNITHA</a>
+            <a href="https://form.respondi.app/KvOzwK4I" className="btn-d3">ENTRAR NA ÓRBITA DA ZÊNITHA</a>
           </div>
         </div>
       </section>
@@ -273,7 +212,7 @@ function App() {
             </p>
 
             <div className="manifesto-cta">
-              <a href="#dobra9" className="btn-manifesto">APLICAR PARA UMA VAGA →</a>
+              <a href="https://form.respondi.app/KvOzwK4I" className="btn-manifesto">APLICAR PARA UMA VAGA →</a>
             </div>
           </div>
         </div>
@@ -345,7 +284,7 @@ function App() {
           </div>
 
           <div className="d6-cta anim d5">
-            <a href="#dobra9" className="btn-d6">QUERO APLICAR PARA UMA VAGA</a>
+            <a href="https://form.respondi.app/KvOzwK4I" className="btn-d6">QUERO APLICAR PARA UMA VAGA</a>
           </div>
         </div>
       </section>
@@ -430,7 +369,7 @@ function App() {
         </h2>
 
         <div className="cta-btn">
-          <a href="mailto:publicidade.zenitha@gmail.com" className="btn-primary">
+          <a href="https://form.respondi.app/KvOzwK4I" className="btn-primary">
             TIRAR MINHA MARCA DO MUDO
           </a>
         </div>

@@ -479,7 +479,7 @@ section {
 .manifesto-line-2 {
   display: block;
   font-family: "Sloop", serif;
-font-size: clamp(62px, 7vw, 98px);
+  font-size: clamp(62px, 7vw, 98px);
   line-height: 0.72;
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -634,7 +634,19 @@ font-size: clamp(62px, 7vw, 98px);
     font-size: 12px;
   }
 
+  .manifesto-cta {
+    width: 100%;
+  }
+
+  .btn-manifesto {
+    width: 100%; /* 🔥 ocupa tudo */
+    max-width: 320px; /* mantém padrão bonito */
+    height: 48px; /* 🔥 melhora toque */
+    font-size: 12px;
+  }
+
 }
+
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
@@ -662,11 +674,9 @@ font-size: clamp(62px, 7vw, 98px);
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(4, 11, 24, 0.18),
-    rgba(4, 11, 24, 0.42)
-  );
+  background: linear-gradient(to bottom,
+      rgba(4, 11, 24, 0.18),
+      rgba(4, 11, 24, 0.42));
   z-index: 1;
 }
 
@@ -807,6 +817,7 @@ font-size: clamp(62px, 7vw, 98px);
     transform: translateY(-8px);
     opacity: 0.15;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -875,13 +886,14 @@ font-size: clamp(62px, 7vw, 98px);
   }
 
   .hero-stats-bar {
-    grid-template-columns: 1fr;
-    padding: 18px 20px;
-    margin-top: 44px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 18px 16px;
   }
 
   .stat-item {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.2;
   }
 }
 
@@ -987,8 +999,9 @@ font-size: clamp(62px, 7vw, 98px);
   }
 
   .d2-headline {
-    font-size: clamp(44px, 9vw, 58px);
-    line-height: 0.98;
+    font-size: clamp(52px, 11vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
   }
 
   .d2-text-box p {
@@ -1107,28 +1120,21 @@ font-size: clamp(62px, 7vw, 98px);
 
 @media (max-width: 640px) {
 
-  #dobra5 {
-    padding: 22px 20px;
-  }
-
   .aviso {
-    gap: 14px;
-  }
-
-  .aviso-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
+    display: flex !important;
+    flex-direction: row !important; /* 🔥 força mesmo */
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
 
   .aviso-content {
-    max-width: 100%;
+    max-width: 260px;
   }
 
-  .aviso strong,
   .aviso p {
-    font-size: 14px;
-    line-height: 1.35;
+    margin: 0;
+    text-align: left;
   }
 
 }
@@ -1293,15 +1299,19 @@ font-size: clamp(62px, 7vw, 98px);
   }
 
   #dobra6 .d6-col {
-    justify-items: center;
-    row-gap: 14px;
+    display: flex; /* 🔥 muda de grid pra flex */
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+  }
+
+  #dobra6 .d6-number {
+    flex-shrink: 0; /* 🔥 não deixa o número deformar */
   }
 
   #dobra6 .d6-step-text {
     max-width: 100%;
-    font-size: 15px;
-    line-height: 1.26;
-    text-align: center;
+    text-align: left; /* 🔥 importante */
   }
 
   #dobra6 .d6-cta {
@@ -1408,7 +1418,7 @@ font-size: clamp(62px, 7vw, 98px);
   max-width: 520px;
 }
 
-.f-bio p + p {
+.f-bio p+p {
   margin-top: 18px;
 }
 
@@ -1538,6 +1548,7 @@ font-size: clamp(62px, 7vw, 98px);
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-50% - 12px));
   }
@@ -1641,6 +1652,17 @@ font-size: clamp(62px, 7vw, 98px);
   color: #ffffff;
 }
 
+@media (max-width: 768px) {
+
+  #dobra9 .btn-primary {
+    min-width: unset; /* remove o limite */
+    width: 100%; /* ocupa o container */
+    max-width: 380px; /* 🔥 controla largura bonita */
+    padding: 16px 20px;
+  }
+
+}
+
 /* ── FOOTER ── */
 footer {
   background: #08101c;
@@ -1712,44 +1734,56 @@ footer {
   nav {
     padding: 0 24px;
   }
+
   section {
     padding: 80px 24px;
   }
+
   #dobra4 {
     padding: 100px 24px;
   }
+
   #dobra5 {
     padding: 40px 24px;
   }
+
   #dobra9 {
     padding: 80px 24px;
   }
+
   footer {
     padding: 36px 24px;
     flex-direction: column;
     align-items: flex-start;
   }
+
   #hero {
     padding: 100px 24px 80px;
   }
+
   .hero-stats {
     gap: 28px;
   }
+
   .d3-grid {
     grid-template-columns: 1fr;
   }
+
   .d7-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .aviso {
     padding: 28px 24px;
     flex-direction: column;
     gap: 14px;
   }
+
   .nav-links {
     display: none;
   }
+
   .hamburger {
     display: flex;
   }
@@ -1760,6 +1794,7 @@ footer {
     aspect-ratio: unset;
     height: auto;
   }
+
   .d7-photo img {
     width: 100%;
     height: auto;
@@ -1775,12 +1810,14 @@ footer {
     border-top: none;
     padding-top: 0;
   }
+
   .stat {
     display: flex;
     align-items: center;
     gap: 20px;
     text-align: left;
   }
+
   .fcard {
     width: 290px;
   }
