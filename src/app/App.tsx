@@ -17,8 +17,9 @@ import feed5 from "../assets/feed5.png";
 const feedbackImages = [feed1, feed2, feed3, feed4, feed5];
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
-    // Scroll animation setup
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -100px 0px'
@@ -32,29 +33,29 @@ function App() {
       });
     }, observerOptions);
 
-    // Add ready class and observe elements
-    document.querySelectorAll('.anim, .anim-left, .anim-right, .anim-scale, .anim-fade').forEach(el => {
-      el.classList.add('ready');
-      observer.observe(el);
-    });
-
-    // Hamburger menu
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeMenu = document.querySelector('.close-menu');
-
-    const openMenu = () => mobileMenu?.classList.add('open');
-    const closeMenuFunc = () => mobileMenu?.classList.remove('open');
-
-    hamburger?.addEventListener('click', openMenu);
-    closeMenu?.addEventListener('click', closeMenuFunc);
+    document.querySelectorAll('.anim, .anim-left, .anim-right, .anim-scale, .anim-fade')
+      .forEach(el => {
+        el.classList.add('ready');
+        observer.observe(el);
+      });
 
     return () => {
-      hamburger?.removeEventListener('click', openMenu);
-      closeMenu?.removeEventListener('click', closeMenuFunc);
       observer.disconnect();
     };
   }, []);
+
+  const handleNavigate = (id) => {
+  const element = document.getElementById(id);
+
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  setMenuOpen(false); // fecha o menu sempre
+};
 
   return (
     <>
@@ -62,25 +63,34 @@ function App() {
         <a href="#hero" className="nav-logo">
           <img src={logoImage} alt="ZÊNITHA Co." style={{ height: '100px' }} />
         </a>
+
         <ul className="nav-links">
-          <li><a href="#dobra2">Nossa tese</a></li>
-          <li><a href="#dobra3"><strong>É Pra Você?</strong></a></li>
-          <li><a href="#dobra7">A Fundadora</a></li>
-          <li><a href="#dobra8"><strong>Feedbacks</strong></a></li>
+          <li><a onClick={() => handleNavigate('dobra2')}>Nossa tese</a></li>
+          <li><a onClick={() => handleNavigate('dobra3')}><strong>É Pra Você?</strong></a></li>
+          <li><a onClick={() => handleNavigate('dobra7')}>A Fundadora</a></li>
+          <li><a onClick={() => handleNavigate('dobra8')}><strong>Feedbacks</strong></a></li>
         </ul>
-        <button className="hamburger" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+        >
+          {menuOpen ? '×' : (
+            <>
+              <span></span>
+              <span></span>
+              <span></span>
+            </>
+          )}
         </button>
       </nav>
 
-      <div className="mobile-menu">
-        <button className="close-menu" aria-label="Fechar">×</button>
-        <a href="#dobra2">Nossa tese</a>
-        <a href="#dobra3">É Pra Você?</a>
-        <a href="#dobra7">A Fundadora</a>
-        <a href="#dobra8">Feedbacks</a>
+      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        <a onClick={() => handleNavigate('dobra2')}>Nossa tese</a>
+        <a onClick={() => handleNavigate('dobra3')}>É Pra Você?</a>
+        <a onClick={() => handleNavigate('dobra7')}>A Fundadora</a>
+        <a onClick={() => handleNavigate('dobra8')}>Feedbacks</a>
       </div>
 
       <section
@@ -114,9 +124,9 @@ function App() {
 
         <div className="hero-stats-bar">
           <div className="stat-item">Clientes em 5 países</div>
-<div className="stat-item">+7 dígitos gerados</div>
-<div className="stat-item">+40 nichos atendidos</div>
-<div className="stat-item">4 anos no mercado</div>
+          <div className="stat-item">+7 dígitos gerados</div>
+          <div className="stat-item">+40 nichos atendidos</div>
+          <div className="stat-item">4 anos no mercado</div>
         </div>
       </section>
 

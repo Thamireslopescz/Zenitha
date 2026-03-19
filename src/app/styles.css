@@ -853,8 +853,8 @@ section {
 
 @media (max-width: 768px) {
   #hero {
-    min-height: auto;
-    padding: 100px 20px 0;
+    position: relative;
+    min-height: 100vh; /* importante */
   }
 
   .hero-content {
@@ -886,9 +886,9 @@ section {
   }
 
   .hero-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 18px 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   .stat-item {
@@ -916,7 +916,7 @@ section {
 .d2-left {
   display: flex;
   flex-direction: column;
-  gap: 88px;
+  gap: 48px;
   padding-top: 8px;
 }
 
@@ -999,7 +999,7 @@ section {
   }
 
   .d2-headline {
-    font-size: clamp(52px, 11vw, 64px);
+    font-size: clamp(62px, 11vw, 74px);
     line-height: 0.95;
     letter-spacing: -0.035em;
   }
@@ -1787,6 +1787,27 @@ footer {
   .hamburger {
     display: flex;
   }
+
+  .hamburger.open span {
+  display: none;
+}
+
+.hamburger.open {
+  font-size: 28px;
+  color: var(--gold);
+}
+
+.mobile-menu {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
 }
 
 @media (max-width: 900px) {
